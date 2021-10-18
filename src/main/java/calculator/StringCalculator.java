@@ -2,7 +2,7 @@ package calculator;
 
 public class StringCalculator {
 	public int count ;
-	
+	//Custom exception for -VE number
 	public class NegativeNumberException extends Exception{
 		public  NegativeNumberException(String msg) {
 			super(msg);
@@ -14,14 +14,15 @@ public class StringCalculator {
 	public static int Add(String s) throws NegativeNumberException {
 		
 		
-		
+		//if Empty String
 		if(s.length()==0)
 			return 0;
 		
-		
+		//if a digit is passed
 		else if(s.length()==1)
 			return Integer.parseInt(s);
 		
+		// Delimeter is "," and ";"
 		else if(s.contains(",")||s.contains(";")) {
 			count=0;
 			int sum = 0;
@@ -39,10 +40,12 @@ public class StringCalculator {
 				//System.out.println("sf"+str);
 					
 				if(str.length()>0){
-					if(Integer.parseInt(str)>1000)
+					if(Integer.parseInt(str)>1000)						// Ignoring Number greator than 1000
 						i=0;
+					
+					
 					else if(Integer.parseInt(str)<0)
-						 throw new NegativeNumberException("negative number not allowed");
+						 throw new NegativeNumberException("negative number not allowed");  // Exception handling
 						
 					
 					else
@@ -59,6 +62,8 @@ public class StringCalculator {
 			//System.out.println(sum);
 			return sum ;
 		}
+		
+		// delimeter given in square bracket with any length
 		else if(s.contains("[")) {
 			
 		
@@ -68,6 +73,9 @@ public class StringCalculator {
 			int i=0,j =0 ;
 			count = 0;
 			s=s.replaceAll("\n", "");
+			
+			//handaling metaCharactors
+			
 			s= s.replaceAll("\\*", "#");
 			s= s.replaceAll("\\+", "#");
 			s= s.replaceAll("\\^", "#");
