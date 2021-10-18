@@ -8,7 +8,7 @@ public class StringCalculator {
 			super(msg);
 		}
 
-	}
+		}
 
 	
 	public static int Add(String s) throws NegativeNumberException {
