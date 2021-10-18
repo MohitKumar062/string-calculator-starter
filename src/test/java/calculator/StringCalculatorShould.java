@@ -14,6 +14,7 @@ class StringCalculatorShould {
 		public void init() {
 			strCal= new StringCalculator();			
 			}
+	//all the following test passes successfully
 		//1
 		@Test
 		void StringIsEmptyReturnZero() throws NegativeNumberException {
